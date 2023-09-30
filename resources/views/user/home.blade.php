@@ -87,24 +87,25 @@
 
                         @if(Route::has('login'))
 
+                        @auth
                         <x-app-layout>
 
 
                         </x-app-layout>
-
                         @else
+
+
                         <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="{{route('login')}}">Login</a>
+                            <a class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login </a>
                         </li>
 
+
                         <li class="nav-item">
-                            <a class="btn btn-primary ml-lg-3" href="{{route('register')}}">Register</a>
+                            <a class="btn btn-primary ml-lg-3" href="{{ route('register') }}">Register </a>
                         </li>
 
                         @endauth
-
-
-
+                        @endif
                     </ul>
                 </div> <!-- .navbar-collapse -->
             </div> <!-- .container -->
@@ -172,29 +173,13 @@
         </div> <!-- .bg-light -->
     </div> <!-- .bg-light -->
 
-
+    <!--Import doctor part-->
     @include('user.doctor')
 
-    </div> <!-- .page-section -->
-
+    @include('user.latest')
 
     @include('user.appointment')
-    <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
-        <div class="container py-5 py-lg-0">
-            <div class="row align-items-center">
-                <div class="col-lg-4 wow zoomIn">
-                    <div class="img-banner d-none d-lg-block">
-                        <img src="../assets/img/mobile_app.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-8 wow fadeInRight">
-                    <h1 class="font-weight-normal mb-3">Get easy access of all features using One Health Application</h1>
-                    <a href="#"><img src="../assets/img/google_play.svg" alt=""></a>
-                    <a href="#" class="ml-2"><img src="../assets/img/app_store.svg" alt=""></a>
-                </div>
-            </div>
-        </div>
-    </div> <!-- .banner-home -->
+
 
     <footer class="page-footer">
         <div class="container">
