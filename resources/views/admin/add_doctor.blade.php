@@ -13,6 +13,7 @@
 
 <body>
     <div class=" container-scroller">
+
         <div class="row p-0 m-0 proBanner" id="proBanner">
             <div class="col-md-12 p-0 m-0">
                 <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
@@ -26,23 +27,55 @@
                     <div class="d-flex align-items-center justify-content-between"><a href="https://www.bootstrapdash.com/product/corona-free/"><i class="mdi mdi-home me-3 text-white"></i></a><button id="bannerClose" class="btn border-0 p-0"><i class="mdi mdi-close text-white me-0"></i></button></div>
                 </div>
             </div>
-        </div>@include('admin.sidebar') @include('admin.navbar') <div class="container-fluid page-body-wrapper">
+        </div>
+
+        @include('admin.sidebar')
+        @include('admin.navbar')
+
+        <div class="container-fluid page-body-wrapper">
             <div class="container" align="center" style="padding-top:100px;">
-                <form>
-                    <div style="padding: 15px;"><label>Doctor Name :</label><input type=" text" style="color:black;" name="name" placeholder="Write the name"></div>
-                    <div style="padding: 15px;"><label>Phone Number:</label><input type="number" style="color:black;" name="number" placeholder="Write the number"></div>
-                    <div style="padding: 15px;"><label>Speciality:</label><select name="speciality" style=" color:black">
+                <h2>Add Doctor Form</h2>
+                <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div style=" padding: 15px;">
+                        <label>Doctor Name :</label>
+                        <input type=" text" style="color:black;" name="name" placeholder="Write the name">
+                    </div>
+
+                    <div style="padding: 15px;"><label>Phone Number:</label>
+                        <input type="number" style="color:black;" name="number" placeholder="Write the number">
+                    </div>
+
+                    <div style="padding: 15px;">
+                        <label>Speciality:</label>
+                        <select name="speciality" style=" color:black">
                             <option value=" skin">--Select--</option>
                             <option value="eye">Eye specialist</option>
                             <option value="heart">Heart specialist</option>
                             <option value="nose">Nose specialist</option>
                             <option value="skin">Skin specialist</option>
-                        </select></div>
-                    <div style="padding: 15px;"><label>Room Number:</label><input type="number" style="color:black;" name="room" placeholder="Write the room number"></div>
-                    <div style="padding: 15px;"><label>Doctor Image:</label><input type="file" name="file"></div>
-                    <div style="padding: 15px;"><input type="submit" class="btn btn-success"></div>
+                        </select>
+
+                    </div>
+
+                    <div style="padding: 15px;">
+                        <label>Room Number:</label>
+                        <input type="number" style="color:black;" name="room" placeholder="Write the room number">
+                    </div>
+
+                    <div style="padding: 15px;">
+                        <label>Doctor Image:</label>
+                        <input type="file" name="file">
+                    </div>
+
+                    <div style="padding: 15px;">
+                        <input type="submit" class="btn btn-success">
+                    </div>
+
                 </form>
-            </div>@include('admin.script')
+            </div>
+
+            @include('admin.script')
 </body>
 
 </html>
