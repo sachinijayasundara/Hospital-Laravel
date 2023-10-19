@@ -90,7 +90,7 @@
                         @auth
 
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">My Appointment</a>
+                            <a class="nav-link" style="background-color:aquamarine" href="{{url('myappointment')}}">My Appointment</a>
                         </li>
 
                         <x-app-layout>
