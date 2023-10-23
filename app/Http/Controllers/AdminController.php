@@ -32,6 +32,8 @@ class AdminController extends Controller
         $doctor->phone = $request->number;
 
         $doctor->speciality = $request->speciality;
+        $doctor->room = $request->room;
+
 
         $doctor->save();
 
@@ -58,5 +60,10 @@ class AdminController extends Controller
         $data->status = 'canceled';
         $data->save();
         return redirect()->back();
+    }
+    public function showdoctor()
+    {
+        $data = doctor::all();
+        return view('admin.showdoctor', compact('data'));
     }
 }
