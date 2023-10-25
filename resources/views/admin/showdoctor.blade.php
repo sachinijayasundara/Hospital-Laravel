@@ -35,7 +35,7 @@
         <div class="container-fluid page-body-wrapper">
 
             <div align="center" style="padding-top:100px;">
-                <table>
+                <table height=100px>
                     <tr style="background-color:black">
 
                         <th style="padding: 10px;">Doctor Name</th>
@@ -43,16 +43,27 @@
                         <th style="padding: 10px;">Speciality</th>
                         <th style="padding: 10px;">Room No</th>
                         <th style="padding: 10px;">Image</th>
-
+                        <th style="padding: 10px;">Update</th>
+                        <th style="padding: 10px;">Delete</th>
                     </tr>
 
                     @foreach($data as $doctor)
-                    <tr>
-                        <td>{{$doctor->name}}</td>
-                        <td>{{$doctor->phone}}</td>
-                        <td>{{$doctor->speciality}}</td>
-                        <td>{{$doctor->room}}</td>
+                    <tr style="background-color:aqua" align="center">
+                        <td style="color:black;">{{$doctor->name}}</td>
+                        <td style="color:black;">{{$doctor->phone}}</td>
+                        <td style="color:black;">{{$doctor->speciality}}</td>
+                        <td style="color:black;">{{$doctor->room}}</td>
+                        <td>
+                            <img height=" 100" width="100" src=" doctorimage/{{$doctor->image}}">
+                        </td>
 
+                        <td>
+                            <a class="btn btn-primary" href=" {{url('updatedoctor',$doctor->id)}}">Update</a>
+                        </td>
+
+                        <td>
+                            <a class="btn btn-danger" onclick="return confirm('Are you sure want to delete the doctor')" href="{{url('deletedoctor',$doctor->id)}}">Delete</a>
+                        </td>
                     </tr>
                     @endforeach
                 </table>
