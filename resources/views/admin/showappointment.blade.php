@@ -43,9 +43,11 @@
                         <th style="padding: 10px;">Phone</th>
                         <th style="padding: 10px;">Doctor name</th>
                         <th style="padding: 10px;">Message</th>
+                        <th style="padding: 10px;">Appointment Date</th>
                         <th style="padding: 10px;">Status</th>
                         <th style="padding: 10px;">Approved</th>
                         <th style="padding: 10px;">Canceled</th>
+                        <th style="padding: 10px;">Send Mail</th>
                     </tr>
                     @foreach($data as $appoint)
                     <tr style="background-color:deeppink">
@@ -56,6 +58,7 @@
                         <td>{{$appoint->phone}}</td>
                         <td>{{$appoint->doctor}}</td>
                         <td>{{$appoint->message}}</td>
+                        <td>{{$appoint->date}}</td>
                         <td>{{$appoint->status}}</td>
 
                         <td>
@@ -64,6 +67,10 @@
 
                         <td>
                             <a class="btn btn-danger" onclick="return confirm('Are you sure want to cancel this appointment?')" href="{{url('canceled',$appoint->id)}}">Canceled</a>
+                        </td>
+
+                        <td>
+                            <a class="btn btn-primary" href="{{url('emailview',$appoint->id)}}">Send Mail</a>
                         </td>
                     </tr>
                     @endforeach
