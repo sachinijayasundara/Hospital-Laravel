@@ -50,7 +50,7 @@
                 @endif
 
                 <!-- <h1>Send the mail</h1> -->
-                <form action="{{ url('upload_doctor') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('sendemail',$data->id) }}" method="POST">
                     @csrf
                     <div style="padding: 15px;">
                         <label for="name">Greeting</label>
@@ -66,17 +66,17 @@
 
                     <div style="padding: 15px;">
                         <label for="room">Action Text</label>
-                        <input type="number" style="color: black;" name="actiontext" required="">
+                        <input type="text" style="color: black;" name="actiontext" required="">
                     </div>
 
                     <div style="padding: 15px;">
                         <label for="room">Action Url</label>
-                        <input type="number" style="color: black;" name="actionurl" required="">
+                        <input type="text" style="color: black;" name="actionurl" required="">
                     </div>
 
                     <div style="padding: 15px;">
                         <label for="room">End part</label>
-                        <input type="number" style="color: black;" name="endpart" required="">
+                        <input type="text" style="color: black;" name="endpart" required="">
                     </div>
 
 
